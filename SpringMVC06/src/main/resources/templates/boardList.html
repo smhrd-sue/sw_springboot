@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	  <h2>Spring MVC 06</h2>
+	  <div class="panel panel-warning">
+	    <div class="panel-heading">Board List Page
+	    
+	    	<span style="float: right;" th:unless="${session.info == null}" th:text="${session.info.nick} + '님 환영합니다!'"></span>
+	    </div>
+	    <div class="panel-body">
+	    	<table class="table table-bordered table-hover">
+	    		<tr class="warning">
+	    			<td>번호</td>
+	    			<td>제목</td>
+	    			<td>작성자</td>
+	    			<td>조회수</td>
+	    			<td>날짜</td>
+	    		</tr>
+	    		
+	    		<tr th:each="vo : ${list}">
+	    			<td th:text="${vo.idx}"></td>
+	    			<td><a th:href="@{/boardContents.do(idx=${vo.idx})}" th:text="${vo.title}"></a></td>
+	    			<td th:text="${vo.writer}"></td>
+	    			<td th:text="${vo.count}"></td>
+	    			<td th:text="${vo.indate}"></td>
+	    		</tr>
+	    		
+	    	</table>
+	    	
+	    	<a class="btn btn-primary" href="boardInsert.do">글쓰기</a>
+	    	
+	    	<!-- Thymeleaf 태그 Web이 실행되면 th:block는 보이지 않는다 -->
+	    	<!-- 로그인을 안했을때 영역 -->
+	    	<th:block th:if="${session.info == null}">
+	    		<a class="btn btn-success" href="login.do">로그인</a>
+	    	</th:block>
+	    	
+	    	<!-- 로그인을 했을때 영역 -->
+	    	<th:block th:if="${session.info != null}">
+	    		<a class="btn btn-warning" href="logout.do">로그아웃</a>
+	    	</th:block>
+	    	
+	    </div>
+	    <div class="panel-footer">LG DX - 박병관</div>
+	  </div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+	  <h2>Spring MVC 06</h2>
+	  <div class="panel panel-warning">
+	    <div class="panel-heading">Board Contents Page</div>
+	    <div class="panel-body">
+	    	<table class="table table-bordered table-hover">
+	    		<tr>
+	    			<td>제목</td>
+	    			<td th:text="${vo.title}"></td>
+	    		</tr>
+	    		<tr>
+	    			<td>내용</td>
+	    			<td th:utext="${#strings.replace(vo.contents, ln, '<br>')}"></td>
+	    			
+	    		</tr>
+	    		<tr>
+	    			<td>작성자</td>
+	    			<td th:text="${vo.writer}"></td>
+	    		</tr>
+	    		<tr>
+	    			<td colspan="2" align="center">
+	    				<a href="boardList.do"><button type="button" class="btn btn-info">돌아가기</button></a>
+	    				
+	    				<a th:href="@{/boardDelete.do(idx=${vo.idx})}"><button type="button" class="btn btn-danger">삭제</button></a>
+	    				<a th:href="@{/boardUpdate.do(idx=${vo.idx})}"><button type="button" class="btn btn-warning">수정</button></a>
+	    			</td>
+	    		</tr>
+	    	</table>
+	    	
+	    </div>
+	    <div class="panel-footer">LG DX - 박병관</div>
+	  </div>
+	</div>
+</body>
+</html>
+
