@@ -9,6 +9,7 @@ public class TestClass {
 		System.out.println("채색 완료");
 		System.out.println("그림완성");
 		System.out.println("미술관전시");
+		System.out.println("눈썹테러");
 	}
 
 }
