@@ -11,6 +11,7 @@ public class TestClass {
 		System.out.println("미술관전시");
 		System.out.println("눈썹테러");
 		System.out.println("미술관장 오열");
+		System.out.println("sue추가");
 	}
 
 }
