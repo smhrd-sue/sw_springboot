@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.smhrd</groupId>
-	<artifactId>MyFirstSpringboot</artifactId>
+	<artifactId>FastAPIProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MyFirstSpringboot</name>
+	<name>FastAPIProject</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
