@@ -17,6 +17,7 @@ public class BoardService {
 
 	// 게시글 작성
 	public BoardEntity write(BoardEntity entity) {
+		
 		// insert문 실행
 		return boardRepository.save(entity);
 	}
