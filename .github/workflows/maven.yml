@@ -2,8 +2,8 @@ name: Deploy to NCP Server
 
 on:
   push:
-    branches:
-      - sue2
+    branches: [sue2]
+      
 
 jobs:
   deploy:
