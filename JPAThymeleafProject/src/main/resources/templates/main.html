@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- 타임리프를 사용하기 위해서는 html태그에 스키마 지정
+	 : 스키마 주소는 공홈 주소를 사용하면 된다
+ -->
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>메인화면</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+   <div class="container" align="center">
+    <h3 class="form-signin-heading text-center mb-5">💚대시보드💚</h3>
+   <h4 class="overview-normalize">접속 아이디</h4>
+   <!-- 표현식을 통해서, 변수를 꺼내올 수 있다!
+        : request영역에 있는 데이터는 바로 꺼내올 수 있다.
+        : 다른 영역(session)에 있는 데이터는 정확하게 scope를 지정해야 한다.
+    -->
+   <p th:text="${session.login.id}">DB에서 로그인한 아이디 출력</p>
+   <hr/>
+   <h4 class="overview-normalize">이동 권한 확인</h4>
+   <p th:text="${session.login.roles}">로그인한 사용자의 역할 출력</p>
+    <p>
+        <button onclick="" class="btn btn-sm btn-success">관리자페이지(관리자만)</button>
+        <button onclick="" class="btn btn-sm btn-info">유저페이지(유저만)</button>
+    </p>
+    <hr/>
+    <form method="post" action="/logout">
+        <button class="btn btn-sm btn-danger btn-block" type="submit" id="logoutbtn">로그아웃</button>
+    </form>
+
+</div>
+   
+</body>
+</html>

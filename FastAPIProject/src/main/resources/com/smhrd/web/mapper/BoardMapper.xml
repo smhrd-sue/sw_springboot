@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.web.mapper.BoardMapper">
+  
+  <select id="selectBoard" resultType="Board">
+    select * from board
+    order by indate desc
+  </select>
+  
+  <insert id="insertBoard" parameterType="Board">
+  	insert into board(bnum, title, writer, content)
+  	values(board_num.nextval,#{title},#{writer},#{content})
+  </insert>
+  
+  <select id="search" 
+		  parameterType="SearchCriteria" 
+		  resultType="Board">
+  	select * from board
+  	where ${filter} like '%'||#{search}||'%'
+  	<!-- <include refid="searchOption"/> -->
+  </select>
+  
+  <sql id="searchOption">
+  	<if test="filter=='content'">
+  	where content like '%'||#{search}||'%'
+    </if>
+    <if test="filter=='writer'">
+  	where writer like '%'||#{search}||'%'
+    </if>
+    <if test="filter=='title'">
+  	where title like '%'||#{search}||'%'
+    </if>
+    
+  </sql>
+  
+  
+  
+  
+  
+  
+  
+</mapper>
