@@ -22,6 +22,7 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean package -DskipTests
+        working-directory: /home/git/sw_springboot/SpringBootBoard
 
       - name: Deploy to Server
         uses: appleboy/scp-action@v0.1.3
